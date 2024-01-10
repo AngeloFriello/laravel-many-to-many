@@ -43,6 +43,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+       
         $data = $request->validated();
         $project = Project::create($data);
         // $project = Project::create($data);
@@ -91,6 +92,12 @@ class ProjectController extends Controller
 
         $project->update($data);
 
+       if ($request->has('technologies')) {
+            $project->technologies()->sync($data['technologies']);
+        } else {
+
+            $project->technologies()->detach();
+        }
         
         return redirect()->route('projects.show', $project);
     }

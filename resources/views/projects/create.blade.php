@@ -27,13 +27,15 @@
             </div>
 
             <div>
-                <label for="technology_id" class="form-label">technology</label>
-                <select name="technology_id" class="form-control" id="technology_id" >
-                    <option>Seleziona le technologie</option>
+                <div class="mt-3">
                     @foreach($technologies as $technology)
-                      <option @selected( old('technology_id') == $technology->id ) value="{{ $technology->id }}">{{ $technology->name }}</option>
+                        <input type="checkbox" name="technologies[]" class="form-check-input" value="{{$technology->id}}" id="technology-{{$technology->id}}" @checked(in_array($technology->id, old('technologies',[])))>
+                        <label class="form-check-label" for="technology-{{$technology->id}}">
+                            {{$technology->name}}
+                        </label> 
+                        
                     @endforeach
-                  </select>
+                </div>
             </div>
 
             <div>

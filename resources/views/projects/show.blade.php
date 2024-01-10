@@ -12,10 +12,13 @@
                     <li>{{isset($project->type) ? $project->type->name : '-'}}</li>
                     <li>{{$project->bio}}</li>
                     <li>{{$project->admin}}</li>
-
-                    <@foreach ($project->technologies as $technology)
+                    <li><strong>Tecnologie:</strong></li>
+                    <ul>
+                        @foreach ($project->technologies as $technology)
                         <li class="">{{ $technology->name }}</li>
-                    @endforeach 
+                        @endforeach 
+                    </ul>
+                    
 
                     <li>Progetto creato il {{$project->created_at}}</li>
                     <li>Ultimo aggiornamento {{$project->updated_at}}</li>
