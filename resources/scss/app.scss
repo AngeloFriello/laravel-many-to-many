@@ -1,0 +1,28 @@
+@import '~bootstrap/scss/bootstrap';
+
+li,ul{
+    list-style: none;
+};
+
+a{
+    text-decoration: none;
+
+}
+
+
+
+.container{
+    
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card{
+        box-shadow: 10px 10px 20px #727272;
+    }
+}
+
+.img-container{
+    margin: 30px auto;
+}
